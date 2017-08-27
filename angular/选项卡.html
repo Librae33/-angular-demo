@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>选项卡</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		/*
+		 * ng-repeat和ng-事件不能见面
+		 */
+		var m=angular.module("myApp",[]);
+		
+		
+		m.controller("test",["$scope",function($scope){
+			$scope.now=0;
+		  $scope.tab=[
+		  { name:"1",value:"11111"},
+		  { name:"2",value:"22222"},
+		  { name:"3",value:"33333"},
+
+		  ];
+		  $scope.fn=function(n){
+		  	$scope.now=n;
+		  }
+		
+		}]);
+		
+		
+		</script>
+		<style>
+			#box{
+				height: 100px;
+				width: 100px;
+				background: red;
+			}
+			.active{
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div ng-controller="test" >
+     <button ng-repeat="v in tab" ng-class="now==$index?'active':''"  ng-click="fn($index)">{{v.name}}</button>
+     <div ng-repeat="v in tab" ng-show="now==$index">{{v.value}}</div>
+</div>
+	</body>
+</html>
+

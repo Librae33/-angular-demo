@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>工具方法</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		<script>
+		/*
+		 * 1.angular.isArray
+		 * 2.angular.isDate
+		 * 3.angular.isDefined
+		 * 4.angular.isElement 判断参数是否是一个DOM元素（或用jQuery元素）。
+		 * 5.angular.isFunction
+		 * 6.angular.isNumber
+		 * 7.angular.isObject
+		 * 8.angular.isstring
+		 * 9.angular.equals
+		 * 10.angular.forEach() 参数：被迭代的对象，迭代函数
+		 * 
+		 */
+		var m=angular.module("myApp",[]);
+		m.controller("test",["$scope",function($scope){
+			var a=['a','b','c'];
+			var b=angular.isArray(a);
+			console.log(b);//true
+			var result=[];
+			angular.forEach(a,function(value,key){
+				console.log("key:"+key+"value:"+value);
+				//this指的就是result
+				this.push(key+":"+value);
+				
+			},result);
+			console.log(result);
+			
+		}])
+		</script>
+	</head>
+	<body>
+		<div ng-controller="test">
+			
+    
+    
+</div>
+	</body>
+</html>

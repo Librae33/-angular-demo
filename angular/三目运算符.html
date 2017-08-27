@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>三目</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		
+			
+		var m=angular.module("myApp",[]);
+		
+		
+		m.controller("test",["$scope",function($scope){
+			
+		
+		}]);
+		
+		
+		</script>
+		
+	
+	</head>
+	<body>
+		<div ng-controller="test" ng-init="arr=['active']">
+       <div ng-class="arr"></div>
+       </div>
+	</body>
+</html>

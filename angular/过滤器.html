@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>过滤器</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		/*
+		 * currency
+           number
+           lowercase/uppercase
+           json
+           limitTo  截取
+           date
+           orderBy
+           filter
+		 */
+		
+			
+		var m=angular.module("myApp",[]);
+		m.controller("test",["$scope",function($scope){
+		$scope.price=123.456456;
+		$scope.name="hello";
+		$scope.date="1590164955000";
+		
+	    
+		}]);
+		
+		
+		</script>
+	</head>
+	<body>
+		<div ng-controller="test">
+			
+    {{price|number:2}}
+    {{name|uppercase}}
+    <pre>{{name|json}}</pre>
+    <p>{{name|limitTo:3}}</p>
+    <p>{{date|date:"yyyy-MM-dd HH:mm:ss"}}</p>
+</div>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>表格</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		
+			
+		var m=angular.module("myApp",[]);
+		
+		
+		m.controller("test",["$scope","$filter",function($scope,$filter){
+			var arr=[
+			{	name:"lisa",age:20},
+			{	name:"jack",age:25},
+			{   name:"rose",age:18 },
+			];
+			$scope.datalist=arr;
+			
+			$scope.fnsort=function(arg){
+                arguments.callee[arg]=!arguments.callee[arg];//挂载到函数本身的属性上
+                                                                        //true表示降序，false表示升序，默认为false
+				$scope.datalist= $filter("orderBy")($scope.datalist,arg,arguments.callee[arg]);
+			};
+			$scope.search=function(){
+				$scope.datalist=$filter("filter")(arr,$scope.value);
+			}
+		
+		}]);
+		
+		
+		</script>
+	</head>
+	<body>
+		<div ng-controller="test">
+			<input type="text" ng-model="value" />
+			<input type="button" value="搜索" ng-click="search()"/>
+			<br />
+			<br />
+       <table border="1px" height="200" width="200">
+       	<th>姓名</th>
+       	<th>年龄</th>
+       	<tr>
+       		<td><button ng-click="fnsort('name')">按姓名</button></td>
+       		<td><button ng-click="fnsort('age')">按年龄</button></td>
+       	</tr>
+       	<tr ng-repeat="data in datalist">
+       		<td>{{data.name}}</td>
+       		<td>{{data.age}}</td>
+       	</tr>
+       </table>
+</div>
+	</body>
+</html>

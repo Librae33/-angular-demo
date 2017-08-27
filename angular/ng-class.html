@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>ng-class</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		
+			
+		var m=angular.module("myApp",[]);
+		
+		
+		m.controller("test",["$scope",function($scope){
+			
+		
+		}]);
+		
+		
+		</script>
+		
+		<style>
+		
+			.active{
+				height: 100px;
+				width: 100px;
+			background:red;
+		}
+		</style>
+	</head>
+	<body>
+		<div ng-controller="test" ng-init="arr=['active']">
+       <div ng-class="arr"></div>
+       </div>
+	</body>
+</html>

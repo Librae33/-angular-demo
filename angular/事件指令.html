@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>事件指令</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		
+			/*
+			 ng-click/dblclick
+             ng-mousedown/up
+             ng-mouseenter/leave
+             ng-mousemove/over/out
+             ng-keydown/up/press
+             ng-focus/blur
+             ng-submit
+             --------
+            ng-selected
+            ng-change
+            ng-copy
+            ng-cut
+            ng-paste
+
+
+
+*/
+		var m=angular.module("myApp",[]);
+		
+		
+		m.controller("test",["$scope",function($scope){
+		
+		
+		}]);
+		
+		
+		</script>
+	</head>
+	<body>
+		<div ng-controller="test">
+       <input type="checkbox" ng-model="a"/>
+       <select>
+       	<option>111</option>
+       	<option ng-selected="a">222</option>
+       	
+       </select>
+</div>
+	</body>
+</html>
+

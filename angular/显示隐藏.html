@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>事件指令</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		
+		var m=angular.module("myApp",[]);
+		
+		
+		m.controller("test",["$scope",function($scope){
+		
+		
+		}]);
+		
+		
+		</script>
+		<style>
+			#box{
+				height: 100px;
+				width: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div ng-controller="test" ng-init="beshow='true'">
+      <input type="button"  value="{{beshow?'显示':'隐藏'}}"ng-click="beshow=!beshow"/>
+      <div id="box" ng-show="beshow"></div>
+</div>
+	</body>
+</html>
+

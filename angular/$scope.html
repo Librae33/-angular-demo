@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>$scope</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		<script>
+		/*scope是一个局部作用域*/
+		/*
+		 * 1.$scope.$watch
+		 * 2.$scope.$apply 可以监听数据的变化，影响视图，可以在原生的js中使用
+		 */
+		var m=angular.module("myApp",[]);
+		m.controller("test",["$scope",function($scope){
+			$scope.name="hello";
+			setTimeout(function(){
+			   $scope.$apply(function(){
+			   	$scope.name="hi~~~~~~~~~";
+			   });
+			},2000);
+		
+			
+		}]);
+		</script>
+	</head>
+	<body>
+		<!--angular  有哪些特性？
+			MVC模式
+			模块系统
+			指令系统
+			双向绑定
+			依赖注入
+		-->
+		<!--相当于控制器，javascript函数-->
+		<div ng-controller="test" ">
+			<!--相当于视图 view-->
+	       <p>{{name}}</p>
+    
+    
+</div>
+	</body>
+</html>

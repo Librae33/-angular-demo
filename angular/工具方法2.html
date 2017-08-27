@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>工具方法2</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		<script>
+		/*scope是一个局部作用域*/
+		/*
+		 * 1.angular.bind(self,fn,args ); 改写this的指向
+		 * 2.angular.copy(source, [destination]);拷贝对象  || 参数（被copy的对象，copy去的目的地）
+		 * 返回复制或更新后的对象
+		 * 3.angular.extend(目标对象,被copy的对象)  对象继承
+		 */
+		var m=angular.module("myApp",[]);
+		m.controller("test",["$scope",function($scope){
+			var a={
+				name:"123"
+			}
+			var b={
+				age:20
+			}
+			var c=angular.copy(a);//将a复制给c
+			angular.copy(a,b);//将a复制给b，覆盖了b中的内容
+			console.log(b);//123
+			angular.extend(b,a);//对象继承
+			console.log(b);
+			
+		}])
+		</script>
+	</head>
+	<body>
+		<div ng-controller="test">
+			
+    
+    
+</div>
+	</body>
+</html>

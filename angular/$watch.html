@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>$watch</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		
+			
+		var m=angular.module("myApp",[]);
+		
+		
+		m.controller("test",["$scope",function($scope){
+			$scope.num=0;
+			/*(谁  ，干什么,深度监视)*/
+			$scope.$watch('num',function(){
+				alert("变了");
+			},true);//true表示深度监视，监视里面的内容
+		
+		}]);
+		
+		
+		</script>
+	</head>
+	<body>
+		<div ng-controller="test">
+      <input type="text" ng-model="num" />
+</div>
+	</body>
+</html>

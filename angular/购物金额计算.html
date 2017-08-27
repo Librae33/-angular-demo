@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		<script>
+		/*scope是一个局部作用域*/
+		function test($scope,$timeout){
+		 $scope.goods={
+		 	price:0,
+		 	num:0,
+		 	fre:10
+		 }
+		 $scope.sum=function(){
+		 	return $scope.goods.price*$scope.goods.num;
+		 }
+	     /*监听 $watch*/
+	                   /*这里没有引号，如果是"goods.price",则要引号*/
+	    $scope.$watch($scope.sum,function(newVal,oldVal){
+	    	if(newVal>=100){
+	    		$scope.goods.fre=0;
+	    	}
+	    	
+	    });//如果要监听整个对象，则设置为true
+	
+        }
+		</script>
+	</head>
+	<body>
+		<!--angular  有哪些特性？
+			MVC模式
+			模块系统
+			指令系统
+			双向绑定
+			依赖注入
+		-->
+		<!--相当于控制器，javascript函数-->
+		<div ng-controller="test"  >
+			<!--相当于视图 view-->
+	      <p>单价：<input type="text" ng-model="goods.price"/></p>
+	     <p>数量：<input type="text" ng-model="goods.num"/></p> 
+	     <!--过滤器-->
+          <p>费用：{{sum()|currency:'￥'}}</p>
+          <p>运费：<span></span>{{goods.fre|currency:'￥'}}</p>
+          <p>总价：{{sum()+goods.fre|currency:'￥'}}</p>
+    
+</div>
+	</body>
+</html>

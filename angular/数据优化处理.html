@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>数据优化</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		/*
+		 ngcloak指令是为了避免angularjs HTML模板被其原浏览器显示简要（编译）。
+		 使用这个指令来避免由HTML模板显示造成不良的闪烁效果。
+		 * */
+			
+		var m=angular.module("myApp",[]);
+		
+		
+		m.controller("test",["$scope",function($scope){
+			$scope.text="hello";
+		
+		}]);
+		
+		
+		</script>
+	</head>
+	<body>
+		<div ng-controller="test">
+			<!--可以包含多个表达式-->
+        <div ng-bind-template="{{text}},{{text}}"></div>
+        <div ng-cloak>{{text}}</div>
+</div>
+<script>
+	alert("aaa");
+</script>
+	</body>
+</html>

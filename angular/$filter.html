@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>$filter</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		/*
+		 * currency
+           number
+           lowercase/uppercase
+           json
+           limitTo  截取
+           date
+           orderBy
+           filter
+		 */
+		
+			
+		var m=angular.module("myApp",[]);
+		//自定义一个过滤器
+		m.filter("firstUpper",function(){
+			return function(str){
+				/*console.log(str);*/
+				return str.charAt(0).toUpperCase()+str.substring(1);
+			}
+		});
+		m.controller("test",["$scope","$filter",function($scope,$filter){
+		
+		$scope.name=$filter("uppercase")("hello");
+		
+		$scope.name="hello";
+		$scope.name=$filter("firstUpper")("hello");
+		
+	    
+		}]);
+		
+		
+		</script>
+	</head>
+	<body>
+		<div ng-controller="test">
+			
+  
+    <p>{{name}}</p>
+    <p>{{name|firstUpper}}</p>
+    <p>{{name|firstUpper}}</p>
+    <p>在js中使用过滤器{{name}}</p>
+</div>
+	</body>
+</html>

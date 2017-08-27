@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>ng-if</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		/*
+		 ng-if:会删除元素
+		 ng-show:显示
+		 ng-hide：隐藏
+		 * 
+		 * 
+		 * */
+			
+		var m=angular.module("myApp",[]);
+		
+		
+		m.controller("test",["$scope",function($scope){
+			
+		
+		}]);
+		
+		
+		</script>
+		
+	
+	</head>
+	<body>
+		<div ng-controller="test" ng-init="arr=['active']">
+       <div ng-class="arr"></div>
+       </div>
+	</body>
+</html>

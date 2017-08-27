@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>DOM</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		
+			/*
+			 * ng-show
+               ng-hide
+               ng-if
+               ng-swtich
+               on
+               default
+               when
+               ng-open
+
+			 */
+		var m=angular.module("myApp",[]);
+		
+		
+		m.controller("test",["$scope",function($scope){
+			$scope.Btn=true;
+		
+		}]);
+		
+		
+		</script>
+	</head>
+	<body>
+		<div ng-controller="test">
+			<!--实现了显示，隐藏的功能-->
+			<input type="checkbox" ng-model="Btn" />
+            <div ng-show="Btn">12345</div>
+</div>
+	</body>
+</html>

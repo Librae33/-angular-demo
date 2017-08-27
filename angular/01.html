@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		<script>
+		/*scope是一个局部作用域*/
+		function test($scope){
+			//相当于model----数据
+	      $scope.name = 'hello';
+	
+        }
+		</script>
+	</head>
+	<body>
+		<!--angular  有哪些特性？
+			MVC模式
+			模块系统
+			指令系统
+			双向绑定
+			依赖注入
+		-->
+		<!--相当于控制器，javascript函数-->
+		<div ng-controller="test">
+			<!--相当于视图-->
+	       <p>{{name}}</p>
+    
+    
+</div>
+	</body>
+</html>

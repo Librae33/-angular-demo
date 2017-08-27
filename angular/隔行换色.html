@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>ng-repeat扩展</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		
+		<script>
+		/*
+		 
+		 * $index
+           $first:第一项返回true，其他返回false
+           $middle：中间返回true，其他返回false
+           $last
+           $even：奇数行返回true，偶数行返回false
+           $odd
+           ng-repeat-start
+           ng-repeat-end
+		*/
+			
+		var m=angular.module("myApp",[]);
+		
+		
+		m.controller("test",["$scope",function($scope){
+			$scope.datalist=["a","b","c"];
+		
+		}]);
+		
+		
+		</script>
+	</head>
+	<body>
+		<div ng-controller="test">
+       <ul>
+       	<li ng-repeat="data in datalist">{{data}}</li>
+       </ul>
+       <ul>
+       		<li ng-repeat="data in datalist">$index:{{$index}}</li>
+       </ul>
+         <ul>
+       		<li ng-repeat="data in datalist">$first:{{$first}}</li>
+       </ul>
+        <ul>
+       		<li ng-repeat="data in datalist">$middle:{{$middle}}</li>
+       </ul>
+        <ul>
+       		<li ng-repeat="data in datalist"> $even:{{ $even}}</li>
+       </ul>
+</div>
+	</body>
+</html>

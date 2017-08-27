@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="utf-8" />
+		<title>工具方法3</title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		<script>
+		/*  
+		 * 进行默认操作
+		 * 1.angular.identity  返回传入的第一参数
+		 * 2. angular.noop 空函数
+		 * ----------------------
+		 * 3.angular.lowercase 将指定的字符串转换为小写。
+		 * 4.angular.uppercase 将指定的字符串转换为大写。
+		 * 5.angular.element   包裹着一部分DOM element或者是HTML字符串，把它作为一个jQuery元素来处理。
+		 * 6.angular.bootstrap  初始化 ng-app(可以进行多次初始化)
+		 * 写成   ng-app="" 的形式只能进行1次初始化
+		 * 7.angular.injector  创建一个injector对象, 
+		 * 调用injector对象的方法可以获得angular的service, 或者用来做依赖注入.
+		 */
+		window.onload=function(){
+			
+		var m=angular.module("myApp",[]);
+		m.controller("test",["$scope",function($scope){
+			
+		var str="a";
+	    console.log(angular.identity(str));
+	    console.log(angular.noop());
+	    
+		}]);
+		var oDiv=document.getElementById("div1");
+	    angular.element(oDiv).css("background","aqua");
+		}
+		</script>
+	</head>
+	<body>
+		<div ng-controller="test">
+			<div id="div1">1234567890</div>
+    
+    
+</div>
+	</body>
+</html>
